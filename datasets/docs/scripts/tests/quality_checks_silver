@@ -1,1 +1,39 @@
 
+--check the NUll or dublicate in primary key
+--data quality checks 
+--expectation no result
+SELECT 
+            cid,
+           COUNT(*)
+       FROM dbo.bronze_erp_cust_az12 
+       GROUP BY cid
+       HAVING COUNT(*) > 1 OR cid IS NULL
+
+--Check of unwanted space
+--expectation no result
+SELECT 
+    gen
+    FROM dbo.bronze_erp_cust_az12 
+    WHERE gen != TRIM(gen)
+--check for NULL or nigetaive numbers
+--expectation no result
+SELECT prd_cost
+       FROM silver.crm_prd_details
+       WHERE prd_cost < 0 OR prd_cost IS NULL
+
+--data stardardization and consistancy
+SELECT DISTINCT prd_line
+FROM silver.crm_prd_details
+
+--check for invalid date orders
+SELECT *
+
+FROM silver.crm_sales_details
+WHERE prd_end_dt < prd_start_date
+
+
+SELECT *,
+bdate
+FROM dbo.bronze_erp_cust_az12 
+WHERE bdate<=0 OR bdate IS NULL
+
