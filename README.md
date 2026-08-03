@@ -35,4 +35,4 @@ These insights provide stakeholders with key business metrics and support strate
 ## License
 ![imaje alt](https://github.com/nahzm/sql_data_warehouse_project/blob/31ea7cc3ae3999bb5b0d59733a42582f8d4c62bb/WAREHOUSE%201.jpg)
 This project is licensed under the MIT License. You are free to use, modify, and share this project with proper attribution.
-![image alt](WAREHOUSE 1.jpg)
+
